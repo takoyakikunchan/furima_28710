@@ -41,16 +41,16 @@ Things you may want to cover:
 
 |       Column          |  Type      | Options                        |
 | --------------------- | ---------- | ------------------------------ |
-|        image          | string     | null: false                    |
-|        name           | string     | null: false                    |
-|     description       | string     | null: false                    |
-|         price         | integer    | null: false                    |
+|        image          |   string   | null: false                    |
+|        name           |   string   | null: false                    |
+|     description       |    text    | null: false                    |
+|         price         |  integer   | null: false                    |
 |         user          | references | null: false, foreign_key: true |
-|      category         | integer    | null: false                    |
-|     condition         | integer    | null: false                    |
-| shipping_fee_person   | integer    | null: false                    |
-|       date_ish        | integer    | null: false                    |
-|        region         | integer    | null: false                    |
+|      category         |   integer  | null: false                    |
+|     condition         |   integer  | null: false                    |
+| shipping_fee_person   |   integer  | null: false                    |
+|       date_ish        |   integer  | null: false                    |
+|        region         |   integer  | null: false                    |
 ### Association
 
 - belongs_to :user
