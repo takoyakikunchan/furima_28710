@@ -17,6 +17,6 @@ class User < ApplicationRecord
        validates :read_fam_name
        validates :read_given_name
      end
-     
-    validates :birthday_id, presence: true
+
+    validates :birthday, presence: true
 end
