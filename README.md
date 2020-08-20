@@ -76,7 +76,7 @@ Things you may want to cover:
 | prefecture   | integer    | null: false                    |
 | city         | string     | null: false                    |
 | street       | string     | null: false                    |
-| building     | string     | null: false                    |
+| building     | string     |                                |
 | phone_number | string     | null: false                    |
 | order        | references | null: false, foreign_key: true |
 ### Association
