@@ -3,13 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         validates :nickname, presence: true
-         
+  validates :nickname, presence: true
 
-  validates :encrypted_password,{ presence: true, confirmation: true, length: {minimum: 6}} 
+  validates :encrypted_password, { presence: true, confirmation: true, length: { minimum: 6 } }
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :encrypted_password, with: PASSWORD_REGEX
-        
+
   with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ } do
     validates :given_name
     validates :family_name
