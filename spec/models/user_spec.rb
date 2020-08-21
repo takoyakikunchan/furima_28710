@@ -55,9 +55,15 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include('Email is invalid')
       end
-      it 'パスワードは半角英数字混合でないと登録できない' do
+      it 'パスワードは英語だけだと登録できない' do
         @user.password = 'kkkkkkkk'
         @user.password_confirmation = 'kkkkkkkk'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password is invalid')
+      end
+      it 'パスワードは数字だけだと登録できない' do
+        @user.password = '00000000'
+        @user.password_confirmation = '00000000'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is invalid')
       end
