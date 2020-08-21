@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :nickname, presence: true
 
-  validates :encrypted_password, { presence: true, confirmation: true, length: { minimum: 6 } }
+  validates :password, { presence: true, confirmation: true, length: { minimum: 6 } }
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  validates_format_of :encrypted_password, with: PASSWORD_REGEX
+  validates_format_of :password, with: PASSWORD_REGEX
 
   with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ } do
     validates :given_name
