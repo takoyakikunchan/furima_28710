@@ -14,4 +14,9 @@ class Item < ApplicationRecord
   validates :category_id,:condition_id,:shipping_fee_person_id,:region_id,:date_ish_id, numericality: { other_than: 1 } 
   validates :name, length: { maximum: 40 }
   validates :description,length: { maximum: 1000 }
+
+  validates :price,
+numericality: { only_integer: true,
+greater_than: 299, less_than: 9999999
+}
 end
