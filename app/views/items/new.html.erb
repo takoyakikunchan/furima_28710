@@ -5,6 +5,7 @@
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
+      <%= image_tag @item.image.variant(resize:'120.11x120.11'), class: 'item-image' if @item.image.attached?%>
     <%= form_with model: @item,local: true do |f| %>
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%# render 'shared/error_messages', model: f.object %>
