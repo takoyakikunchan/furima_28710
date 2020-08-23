@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :move_to_login, only: [:new]
+
   def index
   end
 
@@ -12,6 +14,12 @@ class ItemsController < ApplicationController
         redirect_to root_path
       else
         render :new
+    end
+  end
+
+  def move_to_login
+    unless user_signed_in?
+      redirect_to "/users/sign_in"
     end
   end
 
