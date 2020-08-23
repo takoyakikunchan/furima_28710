@@ -3,9 +3,10 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to_active_hash :category
   belongs_to_active_hash :condition
+  belongs_to_active_hash :shipping_fee_person
   #空の投稿を保存できないようにする
-  validates :name, :image,:price,:description,:category,:condition, presence: true
+  validates :name, :image,:price,:description,:category,:condition,:shipping_fee_person,:rigion,:date_ish, presence: true
 
   #ジャンルの選択が「--」の時は保存できないようにする
-  validates :category_id,:condition_id, numericality: { other_than: 1 } 
+  validates :category_id,:condition_id,:shipping_fee_person_id,:rigion_id,:date_ish_id, numericality: { other_than: 1 } 
 end
