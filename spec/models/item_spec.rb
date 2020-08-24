@@ -79,7 +79,7 @@ describe Item do
        expect(@item.errors.full_messages).to include("Name is too long (maximum is 40 characters)")
       end
 
-      it '商品説明が40文字以上では保存できないこと' do
+      it '商品説明が1000文字以上では保存できないこと' do
         @item.description = "a"*10000
         @item.valid?
        expect(@item.errors.full_messages).to include("Description is too long (maximum is 1000 characters)")
