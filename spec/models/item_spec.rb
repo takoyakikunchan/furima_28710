@@ -72,6 +72,25 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include('Date ish must be other than 1')
       end
+
+      it '商品名が40文字以上では保存できないこと' do
+        @item.name = "a"*50
+        @item.valid?
+       expect(@item.errors.full_messages).to include("Name is too long (maximum is 40 characters)")
+      end
+
+      it '商品説明が40文字以上では保存できないこと' do
+        @item.description = "a"*10000
+        @item.valid?
+       expect(@item.errors.full_messages).to include("Description is too long (maximum is 1000 characters)")
+      end
+
+
+
+
+
+
+
     end
   end
 end
