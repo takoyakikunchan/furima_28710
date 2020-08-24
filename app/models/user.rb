@@ -8,8 +8,8 @@ class User < ApplicationRecord
   validates :password, { presence: true, confirmation: true, length: { minimum: 6 } }
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX
-  NAME_REGEX =  /\A[ぁ-んァ-ン一-龥]+\z/.freeze
-  with_options presence: true, format: { with: NAME_REGEX  } do
+  NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/.freeze
+  with_options presence: true, format: { with: NAME_REGEX } do
     validates :given_name
     validates :family_name
   end
