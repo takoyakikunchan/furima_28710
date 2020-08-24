@@ -1,5 +1,4 @@
-window.addEventListener('load', function(){
- 
+function price() {
   let addPrice = document.getElementById('add-tax-price')
   let benefit = document.getElementById('profit')
   let rawPrice = document.getElementById('item-price')
@@ -15,4 +14,5 @@ window.addEventListener('load', function(){
       })
  
   
-})
+}
+setInterval(price, 1000);
