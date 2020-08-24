@@ -7,10 +7,10 @@ window.addEventListener('load', function(){
     rawPrice = document.getElementById('item-price').value
     let addPriceTax = Number(rawPrice) * 0.1
     let benefitFee = Number(rawPrice) - addPriceTax
-      addPrice.innerHTML = addPriceTax
+      addPrice.innerHTML = Math.floor(addPriceTax)
         console.log(addPrice.innerHTML)
     
-      benefit.innerHTML = benefitFee
+      benefit.innerHTML = Math.floor(benefitFee)
         console.log(benefit.innerHTML)
       })
  
