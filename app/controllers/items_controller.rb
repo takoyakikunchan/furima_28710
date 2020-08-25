@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   before_action :move_to_login, only: [:new]
-
+  before_action :set_item, only: [:show]
   def index
-    @items = Item.all.includes(:user).order(id: "DESC") 
+    @items = Item.all.includes(:user).order(id: 'DESC')
   end
 
   def new
@@ -18,6 +18,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def move_to_login
     redirect_to new_user_session_path unless user_signed_in?
   end
@@ -26,5 +29,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :image, :description, :price, :category_id, :condition_id, :shipping_fee_person_id, :region_id, :date_ish_id).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
