@@ -21,6 +21,11 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+  end
+
   def move_to_login
     redirect_to new_user_session_path unless user_signed_in?
   end
