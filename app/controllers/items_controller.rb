@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_login, only: [:new]
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item, only: [:show, :destroy,:edit,:update]
   def index
     @items = Item.all.includes(:user).order(id: 'DESC')
   end
@@ -26,6 +26,17 @@ class ItemsController < ApplicationController
      redirect_to root_path
      else
       render :show
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+     render :show
+     else
+      redirect_to root_path
     end
   end
 
