@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_login, only: [:new]
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :destroy]
   def index
     @items = Item.all.includes(:user).order(id: 'DESC')
   end
@@ -19,6 +19,14 @@ class ItemsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    if @item.destroy
+     redirect_to root_path
+     else
+      render :show
+    end
   end
 
   def move_to_login
