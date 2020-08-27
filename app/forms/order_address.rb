@@ -1,7 +1,11 @@
 class OrderAddress
 
   include ActiveModel::Model
-  attr_accessor   :token,:postal_code, :prefecture_id, :city, :street, :building,:phone_number,:item_id,:user_id
+  attr_accessor   :token, :postal_code, :prefecture_id, :city, :street, :building,:phone_number,:item_id,:user_id
+
+ validates :postal_code,:prefecture_id,:city, :street,:phone_number, presence: true
+ validates :phone_number, {format: {with: /\A[0-9]{11}+\z/},length: { maximum: 11 } }
+ validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
 
   def save
     order = Order.create(user_id:user_id,item_id:item_id)
