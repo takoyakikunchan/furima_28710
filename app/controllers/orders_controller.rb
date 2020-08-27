@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :move_to_index, only: [:index]
+
   
   def index
     @item =Item.find(params[:item_id]) 
@@ -31,4 +33,14 @@ class OrdersController < ApplicationController
       currency:'jpy'                 # 通貨の種類(日本円)
     )
   end
+
+  def move_to_index
+    @item =Item.find(params[:item_id]) 
+    if !(user_signed_in?) then
+      redirect_to new_user_session_path
+    elsif current_user.id == @item.user_id || @item.order != nil 
+      redirect_to root_path
+    end
+  end
+
 end
