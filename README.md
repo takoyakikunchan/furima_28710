@@ -36,26 +36,27 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_many :orders
-
+- has_many :comments
 ## items テーブル
 
-|       Column          |  Type      | Options                        |
-| --------------------- | ---------- | ------------------------------ |
-|        image          |   string   | null: false                    |
-|        name           |   string   | null: false                    |
-|     description       |    text    | null: false                    |
-|         price         |  integer   | null: false                    |
-|         user          | references | null: false, foreign_key: true |
-|      category         |   integer  | null: false                    |
-|     condition         |   integer  | null: false                    |
-| shipping_fee_person   |   integer  | null: false                    |
-|       date_ish        |   integer  | null: false                    |
-|        region         |   integer  | null: false                    |
+|       Column             |  Type      | Options                        |
+| ------------------------ | ---------- | ------------------------------ |
+|        image             |   string   | null: false                    |
+|        name              |   string   | null: false                    |
+|     description          |    text    | null: false                    |
+|         price            |  integer   | null: false                    |
+|         user             | references | null: false, foreign_key: true |
+|      category_id         |   integer  | null: false                    |
+|     condition_id         |   integer  | null: false                    |
+| shipping_fee_person_id   |   integer  | null: false                    |
+|       date_ish_id        |   integer  | null: false                    |
+|        region_id         |   integer  | null: false                    |
 ### Association
 
 - belongs_to :user
 - has_one :order
 - has_one_attached :image
+- has_many :comments
 ## orders テーブル
 
 | Column | Type       | Options                        |
@@ -82,3 +83,14 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :order
+
+## comments テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
+### Association
+
+- belongs_to :item
+- belongs_to :user
