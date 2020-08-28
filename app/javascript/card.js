@@ -33,7 +33,7 @@ const pay = () => {
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
       } else {
-        window.alert("Error{status}")
+        window.alert(`Error${status}`)
       }
     });
   });
