@@ -13,6 +13,19 @@ app/assets/stylesheets/items/new.css %>
     
 
      <%# /出品画像 %>
+     <div class="img-upload">
+      <div class="weight-bold-text">
+        出品画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+        <div id="image-list"></div>
+      </div>
+    </div>
     <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">

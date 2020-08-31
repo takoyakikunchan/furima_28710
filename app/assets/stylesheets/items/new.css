@@ -88,6 +88,11 @@
 .click-upload>p {
   margin-bottom: 15px;
 }
+.preview-image{
+  height: 150px;
+  width: 150px;
+  object-fit: contain;
+}
 
 /* /出品画像 */
 
