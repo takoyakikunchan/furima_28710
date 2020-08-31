@@ -1,3 +1,4 @@
+if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
 function price() {
   let addPrice = document.getElementById('add-tax-price')
   let benefit = document.getElementById('profit')
@@ -16,3 +17,4 @@ function price() {
   
 }
 window.addEventListener("load", price);
+}
