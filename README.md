@@ -57,6 +57,8 @@ Things you may want to cover:
 - has_one :order
 - has_one_attached :image
 - has_many :comments
+- has_many :item_tag_relations
+- has_many :tags, through: :item_tag_relations
 ## orders テーブル
 
 | Column | Type       | Options                        |
@@ -94,3 +96,24 @@ Things you may want to cover:
 
 - belongs_to :item
 - belongs_to :user
+
+## tags テーブル
+
+| Column   | Type       | Option     |
+| -------- | ---------- | ---------- |
+| tag_name |   string   | null:false |
+### Association
+
+- has_many :item_tag_relations
+- has_many :items, through: :item_tag_relations
+
+## item_tag_relations テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| item_id| references | null: false, foreign_key: true |
+| tag_id | references | null: false, foreign_key: true |
+### Association
+
+- belongs_to : item
+- belongs_to : tag

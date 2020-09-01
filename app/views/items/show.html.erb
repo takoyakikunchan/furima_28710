@@ -42,6 +42,13 @@
     <div class="item-explain-box">
       <span><%= @item.description %></span>
     </div>
+    <div class="item-explain-box">
+    
+      <span><%@item.tags.each do |tag| %>
+              #<%=tag.tag_name%>
+            <%end%>
+      </span>
+    </div>
     <table class="detail-table">
       <tbody>
         <tr>

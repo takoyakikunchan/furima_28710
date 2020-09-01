@@ -8,6 +8,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_fee_person
   belongs_to_active_hash :region
   belongs_to_active_hash :date_ish
+  has_many :item_tag_relations
+  has_many :tags, through: :item_tag_relations
+
   # 空の投稿を保存できないようにする
   validates :name, :price, :description, :category, :condition, :shipping_fee_person, :region, :date_ish, presence: true
   validates :image, presence: {message: 'を登録してください'}
