@@ -26,12 +26,23 @@ class OrdersController < ApplicationController
 
   def pay_item
     @item = Item.find(params[:item_id])
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # PAY.JPテスト秘密鍵
+    
+    if current_user.card.present?
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # 環境変数を読み込む
+      customer_token = current_user.card.customer_token # ログインしているユーザーの顧客トークンを定義
+      Payjp::Charge.create(
+        amount: @item.price, # 商品の値段
+        customer: customer_token, # 顧客のトークン
+        currency: 'jpy' # 通貨の種類（日本円）
+        )
+    else
+     Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # PAY.JPテスト秘密鍵
     Payjp::Charge.create(
       amount: @item.price, # 商品の値段
       card: order_params[:token], # カードトークン
       currency: 'jpy'                 # 通貨の種類(日本円)
     )
+    end
   end
 
   def move_to_index

@@ -1,12 +1,20 @@
-const pay = () => {
+if (document.URL.match( /orders/ ) ) {
+  const pay = () => {
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   const form = document.getElementById("charge-form");
   console.log(form)
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-
+  
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
+
+    const cardForm =  document.getElementsByClassName("credit-card-form")
+   if (cardForm.length=== 0){
+    document.getElementById("charge-form").submit();
+        document.getElementById("charge-form").reset();
+   }else{
 
     const card = {
       number: formData.get("number"),
@@ -35,8 +43,11 @@ const pay = () => {
       } else {
         window.alert(`Error${status}`)
       }
-    });
+    });  }
+  
+
   });
 };
 
 window.addEventListener("load", pay);
+}
