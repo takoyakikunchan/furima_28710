@@ -34,10 +34,10 @@ position: relative;
 }
 .FormField{
   margin-top:20px;
-  padding-left:10px;
+  padding-left:90px;
 }
 .submit_botton{
-  margin-left:75px;
+  margin-left:150px;
 }
 .card_pass,.logout_pass,.top_pass {
   text-decoration: none;
@@ -61,4 +61,27 @@ position: relative;
 }
 .FormField___password{
   margin-top:20px;
+}
+.listt{
+  list-style: none;
+}
+.profile_itemm{
+  display: flex;
+  flex-wrap: wrap;
+}
+.item-img-contentt{
+  padding:10px;
+}
+.bottuns{
+margin-left:400px;
+}
+.profile_text{
+  border:solid 2px #ffc778;
+  text-align: center;
+  width:70%;
+}
+.profile{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

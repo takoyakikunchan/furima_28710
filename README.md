@@ -37,6 +37,8 @@ Things you may want to cover:
 - has_many :items
 - has_many :orders
 - has_many :comments
+- has_one :card, dependent: :destroy
+- has_one :profiles
 ## items テーブル
 
 |       Column             |  Type      | Options                        |
@@ -117,3 +119,24 @@ Things you may want to cover:
 
 - belongs_to : item
 - belongs_to : tag
+
+## cards テーブル
+
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| card_token     | string     | null: false                    |
+| customer_token | string     | null: false                    |
+| user           | references | null: false, foreign_key: true |
+### Association
+
+- belongs_to :user
+
+## profiles テーブル
+
+| Column           | Type     | Option                         |
+| -------------- | ---------- | ------------------------------ |
+| text           |   text     |                                |
+| user           | references | null: false, foreign_key: true |
+### Association
+
+- belongs_to :user

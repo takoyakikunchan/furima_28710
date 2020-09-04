@@ -24,4 +24,6 @@ class User < ApplicationRecord
   has_many :orders
   has_one :card, dependent: :destroy
   has_one :address
+  has_many :comments
+  has_one :profile
 end

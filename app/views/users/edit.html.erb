@@ -1,0 +1,65 @@
+<div class="AccountPage">
+ <%= link_to image_tag("furima-logo-color.png", class:"furima-iconn"), "/" %>
+  <div class="AccountPage__title">
+    <h1>マイページ編集</h1>
+  </div><br>
+  <% if current_user.card.present?%>
+   <div class="Card__title">
+    <h2>カード情報<h2>
+  </div>
+  <div class="Card_info">
+    【カード番号】
+    <br>
+    <%= "**** **** **** " + @card[:last4] %>
+    <%# カード番号の下4桁を取得 %>
+    <br>
+    【有効期限】
+    <br>
+    <%= @card[:exp_month] %>
+    <%# 有効期限の「月」を取得 %>
+    /
+    <%= @card[:exp_year] %>
+    <%# 有効期限の「年」を取得 %>
+  </div>
+  <%end%>
+  <div class="Account__info">
+    <h2>ユーザー情報</h2>
+  </div>
+  <div class="AccountPage__form">
+    <%= form_for(current_user) do |f| %>
+      <div class="FormField">
+        <div class="FormField__name">
+          <%= f.label :nickname %>
+        </div>
+        <div class="FormField_name">
+          <%= f.text_field :nickname, autofocus: true %>
+        </div>
+      </div>
+      <div class="FormField">
+        <div class="FormField__email">
+          <%= f.label :email %>
+        </div>
+        <div class="FormField_email">
+          <%= f.email_field :email %>
+        </div>
+         <div class="FormField___password">
+          <%= f.label :password %>
+        </div>
+         <div class="FormField_password">
+          <%= f.password_field :password %>
+        </div>
+        <br>
+      </div>
+      <div class="submit_botton">
+        <%= f.submit "更新する" %>
+      </div>
+      <br>
+     <%= link_to "カード登録へ", new_card_path, class: "card_pass"%>
+     <%= link_to "自己紹介文登録へ", new_profile_path, class: "card_pass"%>
+     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout_pass"%>
+     <div class="top__pass">
+     <%= link_to "トップページへ戻る", root_path, class: "top_pass"%>
+     </div>
+    <% end %>
+  </div>
+</div>

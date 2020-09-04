@@ -1,0 +1,4 @@
+<%= form_with model: @profile, url: profiles_path, local: true do |f| %>
+ <%= f.text_area :text, class:"items-text", id:"item-info", placeholder:"自己紹介文（必須 1,000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+ <%= f.submit "登録する" ,class:"profile-btn" %>
+ <% end %>
