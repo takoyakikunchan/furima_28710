@@ -1,0 +1,64 @@
+.furima-iconn{
+  padding-top: 10px;
+  width:110px;
+  display: block;
+}
+.AccountPage{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  
+}
+.AccountPage__title{
+padding-top: 20px;
+font-size: 30px;
+border-bottom: 2px solid skyblue;
+width: 100%;
+position: relative;
+}
+.AccountPage__title:after{
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 2px #ffc778;
+  width: 30%;
+}
+.Card__title{
+  padding-bottom: 10px;
+}
+.Card_info{
+  font-size:13px;
+  border: 1px solid black;
+  padding:15px;
+  margin-bottom: 20px;
+}
+.FormField{
+  margin-top:20px;
+  padding-left:10px;
+}
+.submit_botton{
+  margin-left:75px;
+}
+.card_pass,.logout_pass,.top_pass {
+  text-decoration: none;
+  color: #333333;
+  border: 1px solid black;
+  padding:10px;
+  box-shadow: 3px 4px lightblue;
+}
+.card_pass:active,.logout_pass:active,.top_pass:active{
+  box-shadow: none;
+}
+.card_pass:hover,.logout_pass:hover,.top_pass:hover{
+  background-color: rgba(55, 59, 65, 0.1);
+}
+.top__pass{
+  margin-top: 30px;
+  margin-left:30px;
+}
+.card_pass{
+  margin-right:10px;
+}
+.FormField___password{
+  margin-top:20px;
+}

@@ -1,0 +1,39 @@
+.card-form{
+  padding: 30px;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+ }
+ 
+.form-wrap{
+  display: flex;
+  flex-direction: column;
+ }
+ 
+.exp_month{
+  resize:none;
+}
+ 
+ .exp_year{
+  resize:none;
+ }
+ 
+.update{
+  margin-bottom: 40px;
+}
+
+.input-expiration-date-wrap{
+  display: flex;
+}
+.Cardpage{
+  border-bottom: solid 3px skyblue;
+  position: relative;
+  width:100%
+}
+.Cardpage:after {
+  position: absolute;
+  content: " ";
+  border-bottom: solid 3px #ffc778;
+  bottom: -3px;
+  width: 30%;
+}

@@ -1,4 +1,5 @@
 <div class="AccountPage">
+ <%= link_to image_tag("furima-logo-color.png", class:"furima-iconn"), "/" %>
   <div class="AccountPage__title">
     <h1>マイページ</h1>
   </div><br>
@@ -41,14 +42,23 @@
         <div class="FormField__email">
           <%= f.email_field :email %>
         </div>
+         <div class="FormField___password">
+          <%= f.label :password %>
+        </div>
+         <div class="FormField__password">
+          <%= f.password_field :password %>
+        </div>
         <br>
       </div>
-      <%= f.submit "更新する" %>
-       <br>
-   <%= link_to "カード登録へ", new_card_path%>
-   <%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
-   <br>
-   <%= link_to "トップページへ戻る", root_path%>
+      <div class="submit_botton">
+        <%= f.submit "更新する" %>
+      </div>
+      <br>
+     <%= link_to "カード登録へ", new_card_path, class: "card_pass"%>
+     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout_pass"%>
+     <div class="top__pass">
+     <%= link_to "トップページへ戻る", root_path, class: "top_pass"%>
+     </div>
     <% end %>
   </div>
 </div>
