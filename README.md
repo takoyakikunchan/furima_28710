@@ -39,6 +39,7 @@ Things you may want to cover:
 - has_many :comments
 - has_one :card, dependent: :destroy
 - has_one :profiles
+- has_many :sns_credentials
 ## items テーブル
 
 |       Column             |  Type      | Options                        |
@@ -136,6 +137,17 @@ Things you may want to cover:
 | Column           | Type     | Option                         |
 | -------------- | ---------- | ------------------------------ |
 | text           |   text     |                                |
+| user           | references | null: false, foreign_key: true |
+### Association
+
+- belongs_to :user
+
+## sns_credentials テーブル
+
+| Column           | Type     | Option                         |
+| -------------- | ---------- | ------------------------------ |
+| provider       |   string   |                                |
+| uid            |   string   |                                |
 | user           | references | null: false, foreign_key: true |
 ### Association
 
