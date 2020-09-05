@@ -6,18 +6,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     @user = User.new
   end
+
   def create
-    
-    if params[:sns_auth] == 'true'
-      pass = Devise.friendly_token
-      params[:user][:password] = pass
-      params[:user][:password_confirmation] = pass
-    end
-    super
 
-
-
-
+    #if params[:sns_auth] == 'true'
+      #pass = Devise.friendly_token
+      #params[:user][:password] = pass
+      #params[:user][:password_confirmation] = pass
+    #end
+    #super
 
     @user = User.new(sign_up_params)
      unless @user.valid?
@@ -25,26 +22,30 @@ class Users::RegistrationsController < Devise::RegistrationsController
      end
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
-    @address = @user.build_address
+    @address = @user.addresses.build
     render :new_address
   end
 
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
+    
     @address = Address.new(address_params)
+    
      unless @address.valid?
-       render :new_address
+       render :new_address 
+       return
      end
-    @user.build_address(@address.attributes)
+    @user.addresses.build(@address.attributes)
     @user.save
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
   end
+
  
   protected
  
   def address_params
-    params.require(:address).permit(:postal_code, :address)
+    params.require(:address).permit(:postal_code, :prefecture_id, :city, :street, :building, :phone_number)
   end
   # GET /resource/sign_up
   # def new
