@@ -9,6 +9,7 @@
   align-items: center;
   
 }
+
 .AccountPage__title{
 padding-top: 20px;
 font-size: 30px;
@@ -34,10 +35,10 @@ position: relative;
 }
 .FormField{
   margin-top:20px;
-  padding-left:90px;
+  padding-left:450px;
 }
 .submit_botton{
-  margin-left:150px;
+  margin-left:450px;
 }
 .card_pass,.logout_pass,.top_pass {
   text-decoration: none;
@@ -45,6 +46,7 @@ position: relative;
   border: 1px solid black;
   padding:10px;
   box-shadow: 3px 4px lightblue;
+  margin-left:100px;
 }
 .card_pass:active,.logout_pass:active,.top_pass:active{
   box-shadow: none;
@@ -54,7 +56,7 @@ position: relative;
 }
 .top__pass{
   margin-top: 30px;
-  margin-left:30px;
+  margin-left:100px;
 }
 .card_pass{
   margin-right:10px;
@@ -62,6 +64,7 @@ position: relative;
 .FormField___password{
   margin-top:20px;
 }
+
 .listt{
   list-style: none;
 }
@@ -84,4 +87,8 @@ margin-left:400px;
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.user_items_view{
+margin:20px 0px;
 }

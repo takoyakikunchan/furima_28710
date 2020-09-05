@@ -23,7 +23,7 @@
   </div>
   <%end%>
   <div class="Account__info">
-    <h2>ユーザー情報</h2>
+    <h2><%= @nickname%>様のユーザー情報編集</h2>
   </div>
   <div class="AccountPage__form">
     <%= form_for(current_user) do |f| %>
@@ -44,6 +44,7 @@
         </div>
          <div class="FormField___password">
           <%= f.label :password %>
+          <div><p>*パスワードを変更しない場合は現在のパスワードを入力して更新ボタンを押してください</P></div>
         </div>
          <div class="FormField_password">
           <%= f.password_field :password %>
@@ -57,9 +58,9 @@
      <%= link_to "カード登録へ", new_card_path, class: "card_pass"%>
      <%= link_to "自己紹介文登録へ", new_profile_path, class: "card_pass"%>
      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout_pass"%>
-     <div class="top__pass">
+    
      <%= link_to "トップページへ戻る", root_path, class: "top_pass"%>
-     </div>
+
     <% end %>
   </div>
 </div>
