@@ -44,9 +44,16 @@ class ItemsController < ApplicationController
 
   def search
     return nil if params[:input] == ""
-    tag = Tag.where(['tag_name LIKE ?', "%#{params[:input]}%"] )
-    render json:{ keyword: tag }
+     tag = Tag.where(['tag_name LIKE ?', "%#{params[:input]}%"] )
+     render json:{ keyword: tag }
   end
+
+  def item_search
+    @items = Item.item_search(params[:keyword])
+  end
+
+
+
 
   def move_to_login
     redirect_to new_user_session_path unless user_signed_in?

@@ -1,0 +1,44 @@
+.sold--out{
+    position: absolute;
+    top: 40%;
+    text-align: center;
+    background-color: crimson;
+    transform: skewY(-10deg);
+}
+  
+.sold--out>span {
+    color: #FFF;
+    font-size: 45px;
+    font: bold;
+}
+.llist{
+  list-style: none;
+  margin-right:20px;
+}
+
+.star--btn {
+  display: flex;
+  align-items: center;
+  margin-left:10px;
+}
+
+.star-icon {
+  height: 2vh;
+  width: 2vh;
+  margin-right: 0.5vw;
+}
+
+.star-count {
+  font-size: 2vh;
+}
+.item--price {
+  font-size: 1.5vh;
+  display: flex;
+}
+.contents-row{
+  display:flex;
+  flex-wrap: wrap;
+}
+.no_hits{
+  margin:300px 300px 300px 400px;
+}

@@ -17,5 +17,8 @@ Rails.application.routes.draw do
     collection do
     get 'search'
     end
+    collection do
+    get 'item_search'
+    end
   end
 end

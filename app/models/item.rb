@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   has_many :item_tag_relations
   has_many :tags, through: :item_tag_relations
   has_many :comments
-
+  
   # 空の投稿を保存できないようにする
   validates :name, :price, :description, :category, :condition, :shipping_fee_person, :region, :date_ish, presence: true
   validates :image, presence: {message: 'を登録してください'}
@@ -21,4 +21,23 @@ class Item < ApplicationRecord
   validates :description, length: { maximum: 1000 }
 
   validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'は300~9,999,999円の間で設定してください' }
+
+  def self.item_search(search)
+    if search != ""
+      @items = Item.where('name LIKE(?)', "%#{search}%").where('description LIKE(?)', "%#{search}%")
+      @tags = Tag.where('tag_name LIKE(?)', "%#{search}%")
+      @test = []
+      @tags.each do |tag|
+        @tag_item = tag.items
+        @test <<  @tag_item
+      end
+      @test <<  @items 
+      return @test
+
+    else
+      Item.all
+    end
+  end
+
+
 end
