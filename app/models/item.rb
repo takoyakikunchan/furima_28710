@@ -19,8 +19,13 @@ class Item < ApplicationRecord
   validates :category_id, :condition_id, :shipping_fee_person_id, :region_id, :date_ish_id, numericality: { other_than: 1 , message: 'を選択してください' }
   validates :name, length: { maximum: 40 }
   validates :description, length: { maximum: 1000 }
-
   validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'は300~9,999,999円の間で設定してください' }
+
+
+
+
+
+
 
   def self.item_search(search)
     if search != ""

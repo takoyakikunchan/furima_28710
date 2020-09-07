@@ -1,0 +1,11 @@
+.hashtag_result{
+  display: flex;
+}
+.hashtag_names{
+  margin: 70px 0px 70px 450px;
+  font-size: 20px;
+}
+
+.color{
+  color:skyblue;
+}

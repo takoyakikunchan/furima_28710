@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/item/hashtag/:name', to: "items#hashtag"
   get 'cards/new'
   get 'users/show'
   devise_for :users, controllers: {

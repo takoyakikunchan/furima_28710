@@ -45,7 +45,7 @@
     <div class="item-explain-box">
     
       <span><%@item.tags.each do |tag| %>
-              #<%=tag.tag_name%>
+      <%= render_with_hashtags(tag.tag_name, tag.id) %>
             <%end%>
       </span>
     </div>
