@@ -32,7 +32,10 @@ class Item < ApplicationRecord
         @test <<  @tag_item
       end
       @test <<  @items 
-      return @test
+      @test.each do |i|
+        @item= i.uniq
+      end
+      return @item
 
     else
       Item.all
