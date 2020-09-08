@@ -35,7 +35,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
+    @item = ItemsTag.new(item_update_params)
+    if @item.update
+      @item = Item.find(params[:id])
+      @comment = Comment.new
+      @comments = @item.comments.includes(:user)
       render :show
     else
       render :edit
@@ -64,8 +68,14 @@ end
 
   private
 
-  def item_params
+  # Create
+  def item_params 
     params.require(:items_tag).permit(:tag_name, :name, :image, :description, :price, :category_id, :condition_id, :shipping_fee_person_id, :region_id, :date_ish_id).merge(user_id: current_user.id)
+  end
+
+  # Update
+  def item_update_params
+    params.require(:item).permit(:tag_name, :name, :image, :description, :price, :category_id, :condition_id, :shipping_fee_person_id, :region_id, :date_ish_id).merge(user_id: current_user.id, item_id: params[:id])
   end
 
   def set_item
