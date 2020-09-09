@@ -1,6 +1,9 @@
 <%= render "shared/second-header"%>
-<%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post%>
-<%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post%>
+ <div class="sns_logins">
+<div class="sns_login"><%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post %></div>または
+ <div class="sns_login"><%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post %></div> 
+ </div>
+
 <%= form_with model: resource, as: resource_name, url: session_path(resource_name),class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
