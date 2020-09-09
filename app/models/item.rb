@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :region
   belongs_to_active_hash :date_ish
   has_many :item_tag_relations
-  has_many :tags, through: :item_tag_relations
+  has_many :tags, through: :item_tag_relations, dependent: :destroy
   has_many :comments
   
   # 空の投稿を保存できないようにする
