@@ -29,21 +29,26 @@ class Item < ApplicationRecord
 
   def self.item_search(search)
     if search != ""
-      @items = Item.where('name LIKE(?)', "%#{search}%").where('description LIKE(?)', "%#{search}%")
-      @tags = Tag.where('tag_name LIKE(?)', "%#{search}%")
-      @test = []
-      @tags.each do |tag|
-        @tag_item = tag.items
-        @test <<  @tag_item
+      @item = Item.where('name LIKE(?)', "%#{search}%")
+      @description = Item.where('description LIKE(?)', "%#{search}%")
+      @tag = Tag.where('tag_name LIKE(?)', "%#{search}%")
+      @items = []
+       @item.each do |item| 
+         @items << item
+       end
+       @description.each do |description|
+        @items << description
+       end
+      @tag.each do |tag|
+        tag.items.each do |t|
+          @items << t
+        end
       end
-      @test <<  @items 
-      @test.each do |i|
-        @item= i.uniq
-      end
-      return @item
+      @items = @items.uniq
+      return @items
 
     else
-      Item.all
+      Item.all 
     end
   end
 
