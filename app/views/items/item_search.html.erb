@@ -1,7 +1,8 @@
 <%= render "shared/header" %>
+<div class="hashtag_names"><span class="color"><<%=@keyword%>></span> の商品一覧</div>
 
 <div class="contents-row">
-<%unless @items ==nil %>
+<%unless @items == nil %>
   <% @items.each do |item| %>
     
     <li class='llist'>
@@ -33,6 +34,7 @@
   <% end %>
   
 <%end%>
-  <div class="no_hits"><p>検索条件に当たる商品はありませんでした</p></div>
-
+<%if @items.length == 0 %>
+<div class="no_hits"><p>検索条件に当たる商品はありませんでした</p></div>
+<%end%>
 </div>
