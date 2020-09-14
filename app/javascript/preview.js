@@ -2,6 +2,7 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
 document.addEventListener('DOMContentLoaded', function(){
   const imageList = document.getElementById('image-list');
   document.getElementById('item-image').addEventListener('change', function(e){
+    console.log(e);
     const imageContent = document.querySelector('img');
       if (imageContent){
         imageContent.remove();
