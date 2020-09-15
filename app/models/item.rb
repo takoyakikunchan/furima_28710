@@ -33,14 +33,14 @@ class Item < ApplicationRecord
       @description = Item.where('description LIKE(?)', "%#{search}%")
       @tag = Tag.where('tag_name LIKE(?)', "%#{search}%")
       @items = []
-       @item.each do |item| 
-         @items << item
+       @item.each do |i| 
+         @items << i
        end
-       @description.each do |description|
-        @items << description
+       @description.each do |d|
+        @items << d
        end
-      @tag.each do |tag|
-        tag.items.each do |t|
+      @tag.each do |ta|
+        ta.items.each do |t|
           @items << t
         end
       end
@@ -48,7 +48,7 @@ class Item < ApplicationRecord
       return @items
 
     else
-      Item.all 
+      return nil
     end
   end
 

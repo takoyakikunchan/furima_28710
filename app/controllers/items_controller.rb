@@ -25,23 +25,31 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.destroy
-      redirect_to root_path
+      redirect_to items_path
     else
       render :show
     end
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @tag = @item.tags 
   end
 
   def update
-    @item = ItemsTag.new(item_update_params)
-    if @item.update
+    item = ItemsTag.new(item_update_params)
+    if item.image == nil
+      item.image = @item.image
+    end
+    if item.valid?
+       item.update
       @item = Item.find(params[:id])
       @comment = Comment.new
       @comments = @item.comments.includes(:user)
       render :show
     else
+      @item = Item.find(params[:id])
+      @tag = @item.tags 
       render :edit
     end
   end
@@ -55,6 +63,9 @@ class ItemsController < ApplicationController
   def item_search
     @items = Item.item_search(params[:keyword])
     @keyword = params[:keyword]
+    if @items== nil
+      redirect_to root_path
+    end
   end
 
 
