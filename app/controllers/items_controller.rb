@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
   def update
     item = ItemsTag.new(item_update_params)
     if item.image == nil
-      item.image = @item.image
+      item.image = @item.image.blob
     end
     if item.valid?
        item.update
