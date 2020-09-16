@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:new, :create]
   root "items#index"
   resources :items do
-    resources :comments, only: :create
+    resources :comments, only: [:create,:destroy]
     resources :orders, only:[:index,:create]
     post 'order', on: :member
     collection do
