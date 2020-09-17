@@ -119,7 +119,7 @@
             <%= comment.text %>
           </p>
           <% if user_signed_in? && current_user.id == comment.user_id %>
-            <%= link_to 'コメントを削除する',  "/items/#{@item.id}/comments/#{comment.id}", method: :delete %>
+            <%= link_to '削除',  "/items/#{@item.id}/comments/#{comment.id}", method: :delete %>
           <% end %>
         <% end %>
         </div>
