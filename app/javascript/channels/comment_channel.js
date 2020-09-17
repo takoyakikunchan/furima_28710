@@ -15,7 +15,7 @@ consumer.subscriptions.create("CommentChannel", {
                     <strong><a href="/users/${data.content.user_id}">${data.nickname}</a>：</strong>
                       ${data.content.text}
                   </p>
-                  <i class="far fa-trash-alt trash-icon"></i><a href= "/songs/${data.item.id}/comments/${data.content.id}", method: :delete >"削除"</a> `
+                  <i class="far fa-trash-alt trash-icon"></i><a href= "/songs/${data.item.id}/comments/${data.content.id}", data-method="delete>"削除"</a> `
        const messages = document.getElementById('comments');
        const newMessage = document.getElementById('comment_text');
        messages.insertAdjacentHTML('afterbegin', html);
