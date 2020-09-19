@@ -92,7 +92,6 @@
 
   <div class="comment-box">
   <% if current_user %>
-  <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
       <%= form_with(model: [@item, @comment], local: true) do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2",class: "comment-text" %>
         <button type="submit" class="comment-btn">

@@ -5,11 +5,16 @@
   <div class="profile">
    <p><%= @nickname %>のプロフィール</p>
   
-   <%if @profile%>
+
+  <% unless @user.profile == nil %>
+   <%if @profile.text.present?%>
      <div class="profile_text"><p>~自己紹介文~</p>
      <%= @profile.text%>
      </div>
+
+     
    <%end%>  
+ <%end%>  
      
     <div class="user_items_view"><p>出品商品</p></div>
   </div>

@@ -37,6 +37,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    binding.pry
     item = ItemsTag.new(item_update_params)
     if item.image == nil
       item.image = @item.image.blob
