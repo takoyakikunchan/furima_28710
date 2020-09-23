@@ -4,8 +4,7 @@
   </div><br>
   <div class="profile">
    <p><%= @nickname %>のプロフィール</p>
-  
-
+   
   <% unless @user.profile == nil %>
    <%if @profile.text.present?%>
      <div class="profile_text"><p>~自己紹介文~</p>
@@ -30,7 +29,6 @@
     <% end %>
       </div>
   </div>
-
 
    <div class="bottuns">
      <% if user_signed_in? && current_user.id == @user.id %>

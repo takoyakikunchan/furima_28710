@@ -11,11 +11,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = ItemsTag.new(item_params)
-    if @item.save
-      redirect_to root_path
-    else
+    @item.save
+    @item = Item.find(params[:id])
+      
       render :new
-    end
   end
 
   def show
