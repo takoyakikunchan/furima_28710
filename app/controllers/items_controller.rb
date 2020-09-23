@@ -10,11 +10,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = ItemsTag.new(item_params)
-    @item.save
-    @item = Item.find(params[:id])
-      
-      render :new
+    @item_tag = ItemsTag.new(item_params)
+    @item = @item_tag.save
   end
 
   def show
