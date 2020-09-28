@@ -11,7 +11,11 @@ class ItemsController < ApplicationController
 
   def create
     @item_tag = ItemsTag.new(item_params)
-    @item = @item_tag.save
+    if @item_tag.valid?
+      @item = @item_tag.save
+    else
+      render :new
+    end
   end
 
   def show
